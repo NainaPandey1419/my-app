@@ -243,23 +243,28 @@ export const Home = () => {
       </Button>
       {/* Add Product Button */}
       <Button
-        variant="outlined"
-        sx={{ mt: 2, mr: 2, backgroundColor: "white", color: "#806a5b" }}
-        onClick={() => setShowProductForm(!showProductForm)}
-        onClick={() => handleButtonClick("product")}
-      >
-        {showProductForm ? "Hide" : "Add Products"}
-      </Button>
-      {/* Add Classification Button */}
+  variant="outlined"
+  sx={{ mt: 2, mr: 2, backgroundColor: "white", color: "#806a5b" }}
+  onClick={() => {
+    setShowProductForm(!showProductForm);
+    handleButtonClick("product");
+  }}
+>
+  {showProductForm ? "Hide" : "Add Products"}
+</Button>
 
-      <Button
-        variant="outlined"
-        sx={{ mt: 2, backgroundColor: "white", color: "#806a5b" }}
-        onClick={() => setShowClassificationForm(!showClassificationForm)}
-        onClick={() => handleButtonClick("classification")}
-      >
-        {showClassificationForm ? "Hide" : "Add Classification"}
-      </Button>
+{/* Add Classification Button */}
+<Button
+  variant="outlined"
+  sx={{ mt: 2, backgroundColor: "white", color: "#806a5b" }}
+  onClick={() => {
+    setShowClassificationForm(!showClassificationForm);
+    handleButtonClick("classification");
+  }}
+>
+  {showClassificationForm ? "Hide" : "Add Classification"}
+</Button>
+
       {/* Show the Lowest ranked product */}
 
       {lowestRankedProduct && (
@@ -315,6 +320,7 @@ export const Home = () => {
             {dialogStep === 1
               ? "Does the documentation for this product exist?"
               : "Is this product classified as NH?"}
+              {hasDocumentation && <p>Documentation is available.</p>}
           </Typography>
         </DialogContent>
         <DialogActions>
